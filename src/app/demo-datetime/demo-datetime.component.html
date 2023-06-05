@@ -373,7 +373,7 @@
 
     <mat-card class="zone zone-picker">
       <mat-form-field>
-        <input matInput [ngxMatDatetimePicker]="pickerCustomIcon" placeholder="Choose a date" [formControl]="dateControl"
+        <input matInput [ngxMatDatetimePicker]="pickerCustomIcon" placeholder="Choose a date-time" [formControl]="dateControl"
           [min]="minDate" [max]="maxDate" [disabled]="disabled">
         <mat-datepicker-toggle matSuffix [for]="pickerCustomIcon"></mat-datepicker-toggle>
         <ngx-mat-datetime-picker #pickerCustomIcon [showSpinners]="showSpinners" [showSeconds]="showSeconds" [stepHour]="stepHour"
@@ -386,6 +386,16 @@
         </ngx-mat-datetime-picker>
       </mat-form-field>
     </mat-card>
+
+    <p>
+      {{dateControl.value}}
+    </p>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="regularDatePicker" placeholder="Choose a date" [formControl]="regularDateControl">
+      <mat-datepicker-toggle matSuffix [for]="regularDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #regularDatePicker></mat-datepicker>
+    </mat-form-field>
 
   </mat-tab>
 

@@ -39,6 +39,7 @@ $mat-calendar-next-icon-transform: translateX(-2px) rotate(45deg);
 
 .mat-calendar-controls {
   display: flex;
+  align-items: center;
   margin: $mat-calendar-controls-vertical-padding $mat-calendar-controls-side-margin;
 }
 
@@ -48,16 +49,13 @@ $mat-calendar-next-icon-transform: translateX(-2px) rotate(45deg);
 
 .mat-calendar-period-button {
   min-width: 0;
+  margin: 0 8px;
 }
 
 .mat-calendar-arrow {
   display: inline-block;
-  width: 0;
-  height: 0;
-  border-left: $mat-calendar-arrow-size solid transparent;
-  border-right: $mat-calendar-arrow-size solid transparent;
-  border-top-width: $mat-calendar-arrow-size;
-  border-top-style: solid;
+  width: $mat-calendar-arrow-size * 2;
+  height: $mat-calendar-arrow-size;
   margin: 0 0 0 $mat-calendar-arrow-size;
   vertical-align: middle;
 
@@ -122,4 +120,18 @@ $mat-calendar-next-icon-transform: translateX(-2px) rotate(45deg);
     right: -$mat-calendar-padding;
     height: $mat-calendar-header-divider-width;
   }
+}
+
+// For the calendar element, default inset/offset values are necessary to ensure that
+// the focus indicator is sufficiently contrastive and renders appropriately.
+.mat-calendar-body-cell-content::before {
+  $border-width: var(--mat-focus-indicator-border-width, 3px);
+  $offset: calc(#{$border-width} + 3px);
+  margin: calc(#{$offset} * -1);
+}
+
+// For calendar cells, render the focus indicator when the parent cell is
+// focused.
+.mat-calendar-body-cell:focus .mat-focus-indicator::before {
+  content: '';
 }

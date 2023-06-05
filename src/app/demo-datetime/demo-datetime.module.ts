@@ -14,6 +14,7 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerMod
 import { DemoDatetimeComponent } from './demo-datetime.component';
 import { SharedModule } from '../shared';
 import { MAT_LEGACY_FORM_FIELD_DEFAULT_OPTIONS as MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/legacy-form-field';
+import { MatNativeDateModule } from '@angular/material/core';
 
 const routes: Routes = [
   { path: '', component: DemoDatetimeComponent }
@@ -38,7 +39,8 @@ const routes: Routes = [
     MatCheckboxModule,
     MatIconModule,
     MatCardModule,
-    SharedModule
+    SharedModule,
+    MatNativeDateModule
   ],
   declarations: [
     DemoDatetimeComponent

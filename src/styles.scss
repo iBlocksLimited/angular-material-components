@@ -1,3 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@use '@angular/material' as mat;
 @import '~highlight.js/styles/github.css';
+
+@include mat.legacy-core();
+
+$app-theme: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette(mat.$indigo-palette),
+    accent: mat.define-palette(mat.$pink-palette),
+    warn: mat.define-palette(mat.$red-palette)
+  ),
+  density: 0
+));
+
+@include mat.all-legacy-component-themes($app-theme);
+@include mat.all-legacy-component-typographies(mat.define-legacy-typography-config());

@@ -27,6 +27,8 @@ export class DemoDatetimeComponent implements OnInit {
 
   public dateControl = new FormControl(null);
 
+  public regularDateControl = new FormControl(null);
+
   public options = [
     { value: true, label: 'True' },
     { value: false, label: 'False' }
@@ -56,11 +58,11 @@ export class DemoDatetimeComponent implements OnInit {
 </mat-form-field>`;
 
   public code2 = `import {
-           NgxMatDatetimePickerModule, 
-           NgxMatNativeDateModule, 
-           NgxMatTimepickerModule 
+           NgxMatDatetimePickerModule,
+           NgxMatNativeDateModule,
+           NgxMatTimepickerModule
   } from '@angular-material-components/datetime-picker';
-  
+
 @NgModule({
   imports: [
     ...
@@ -100,7 +102,7 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
   }
 };
 
-//and in the module providers 
+//and in the module providers
 providers: [
     { provide: NGX_MAT_DATE_FORMATS, useValue: CUSTOM_MOMENT_FORMATS }
   ]`;
